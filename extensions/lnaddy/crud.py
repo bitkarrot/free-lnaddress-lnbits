@@ -6,8 +6,6 @@ from . import db
 from .models import CreatePayLinkData, PayLink
 from loguru import logger
 
-# TODO: N lnaddress per wallet id
-
 async def check_lnaddress_update(lnaddress: str, id: str) -> bool: 
     # check no duplicates for lnaddress
     row = await db.fetchall("SELECT lnaddress FROM lnaddy.pay_links WHERE lnaddress = ? AND id = ?", (lnaddress,id))
@@ -28,6 +26,9 @@ async def check_lnaddress_exists(lnaddress: str) -> bool:
     else: 
         return True
         
+async def check_lnaddress_format(lnaddress: str) -> bool:
+    # check format here
+    return True
 
 
 # TODO: ensure LN address format is correct
@@ -109,9 +110,8 @@ async def get_pay_links(wallet_ids: Union[str, List[str]]) -> List[PayLink]:
     )
     return [PayLink.from_row(row) for row in rows]
 
-# TODO: check to make sure lnaddress is unique and not duplicated before updating
+# TODO: check lnaddress format
 async def update_pay_link(link_id: int, **kwargs) -> Optional[PayLink]:
-#    await check_lnaddress_exists()
     for field in kwargs.items():
        if field[0] == 'lnaddress':
             value = field[1]
