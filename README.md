@@ -42,5 +42,5 @@ That's it.
 ## Notes
 
 - This code basically extends the lnurlp functionality. 
-- it is a work in progress
 - Pull requests and issues welcome to help improve it. 
+- it is a work in progress
