@@ -20,10 +20,11 @@ LNURL is a range of lightning-network standards that allow us to use lightning-n
 
 ## Usage
 
-1. Create an LNURLp (New Pay link)\
-   ![create lnurlp](https://i.imgur.com/rhUBJFy.jpg)
+1. Create a Lightning Address with LNURLp (New Pay link)\
+   ![create lnurlp](https://imgur.com/a/LDyOxjP)
 
    - select your wallets
+   - Pick a unique username for lightning address
    - make a small description
    - enter amount
    - if _Fixed amount_ is unchecked you'll have the option to configure a Max and Min amount
