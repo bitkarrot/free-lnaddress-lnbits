@@ -4,14 +4,10 @@ The Name of this extension is Lightning Address Simple, and is Powered by LNURL.
 
 The purpose of this extension is to make Free Lightning Addresses available for small groups without requiring the use of cloudflare or paying for the addresses. This extension is an option for anyone who wants to host lightning addresses for a non-production small LNBits install. Some examples may include: friends and family, game, teaching demo, or an experimental app. 
 
-## Limitations:
-- This is experimental code.
-- It does not provide any reverse proxy or nginx setup, the end user is responsible for this.
-- This extension will enable addresses at your LNBits domain. For example, if your LNBits is hosted at mybits.com, then Lightning addresses created will be named username@mybits.com
-- This extension only works if the other LN Address extension is disabled.
 
+## How to install in 3 easy steps:
 
-## How to install this into your instance of LNBits in 3 easy steps:
+Prerequisite: We assume you have a working instance of LNBits already running.
 
 1. Disable the paid Lightning Address extension by copying the settings from .env.example in this repo into your .env
 2. Copy the extensions/lnaddy folder from this repo into your LNBits extensions folder installation (lnbits/lnbits/extensions/)
@@ -34,6 +30,13 @@ async def lnaddress(username: str, request: Request):
 ```
 
 That's it. 
+
+
+## Limitations:
+- This is experimental code.
+- It does not provide any reverse proxy or nginx setup, the end user is responsible for this.
+- This extension will enable addresses at your LNBits domain. For example, if your LNBits is hosted at mybits.com, then Lightning addresses created will be named username@mybits.com
+- This extension only works if the other LN Address extension is disabled.
 
 
 ## Notes
