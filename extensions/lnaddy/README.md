@@ -21,7 +21,7 @@ LNURL is a range of lightning-network standards that allow us to use lightning-n
 ## Usage
 
 1. Create a Lightning Address with LNURLp (New Pay link)\
-   ![create lnurlp](https://imgur.com/a/LDyOxjP)
+   ![create lnurlp](https://i.imgur.com/Ht7ds9e.png)
 
    - select your wallets
    - Pick a unique username for lightning address
@@ -34,7 +34,7 @@ LNURL is a range of lightning-network standards that allow us to use lightning-n
    - Success mesage, will send a message back to the user after a successful payment, for example a thank you note
    - Success URL, will send back a clickable link to the user. Access to some hidden content, or a download link
 
-2. Use the shareable link or view the LNURLp you just created\
+2. Use the shareable link or view the LNURLp you just created
    ![LNURLp](https://i.imgur.com/C8s1P0Q.jpg)
    - you can now open your LNURLp and copy the LNURL, get the shareable link or print it\
      ![view lnurlp](https://i.imgur.com/4n41S7T.jpg)
