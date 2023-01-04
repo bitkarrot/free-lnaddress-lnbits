@@ -8,7 +8,6 @@
 - This extensions is not meant for production or for high volume applications
 - No Cloudflare. No separate domain, uses the current LNBits domain only.
 - All LN addresses are free.
-- Only 1 LN Address per wallet. 
 - Users can add, delete or modify their LN Address. 
 - LNaddress must be unique name per wallet that follows naming specification
 - Randomized LN address also unique and follows naming specification
