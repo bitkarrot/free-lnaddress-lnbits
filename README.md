@@ -29,7 +29,14 @@ async def lnaddress(username: str, request: Request):
         return await lnurl_response(username, domain, request)
 ```
 
+Restart your LNBits Instance. 
+The extension should now up. 
+![LNAddress Simple](https://i.imgur.com/4Gnvwxh.png)
+
+
 That's it. 
+
+
 
 
 ## Limitations:
