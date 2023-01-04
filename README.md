@@ -30,8 +30,10 @@ async def lnaddress(username: str, request: Request):
 ```
 
 Restart your LNBits Instance. 
-The extension should now up. 
-![LNAddress Simple](https://i.imgur.com/4Gnvwxh.png)
+
+The extension should now be available. 
+
+<img src="https://i.imgur.com/4Gnvwxh.png" width=300/>
 
 
 That's it. 
