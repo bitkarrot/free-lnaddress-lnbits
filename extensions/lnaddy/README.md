@@ -10,7 +10,6 @@
 - All LN addresses are free.
 - Users can add, delete or modify their LN Address. 
 - LNaddress must be unique name per wallet that follows naming specification
-- Randomized LN address also unique and follows naming specification
 
 
 ## Create a static QR code people can use to pay over Lightning Network
