@@ -15,6 +15,8 @@ Prerequisite: We assume you have a working instance of LNBits already running.
 
 
 ```
+from lnbits.settings import settings
+
 @core_app.get("/.well-known/lnurlp/{username}")
 async def lnaddress(username: str, request: Request):
     # check if extension is disabled
