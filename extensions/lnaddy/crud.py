@@ -5,6 +5,9 @@ from lnbits.db import SQLITE
 from . import db
 from .models import CreatePayLinkData, PayLink
 from loguru import logger
+import re
+
+# TODO: N lnaddress per wallet id
 
 async def check_lnaddress_update(lnaddress: str, id: str) -> bool: 
     # check no duplicates for lnaddress
@@ -27,12 +30,14 @@ async def check_lnaddress_exists(lnaddress: str) -> bool:
         return True
         
 async def check_lnaddress_format(lnaddress: str) -> bool:
-    # check format here
+    if not re.match("^[a-z0-9-_.]{3,15}$", lnaddress):
+        assert False, "Only letters a-z0-9-_. allowed, min 3 and max 15 characters!"
+        return
     return True
-
 
 # TODO: ensure LN address format is correct
 async def create_pay_link(data: CreatePayLinkData, wallet_id: str) -> PayLink:
+    await check_lnaddress_format(data.lnaddress)
     await check_lnaddress_exists(data.lnaddress)
         
     returning = "" if db.type == SQLITE else "RETURNING ID"
@@ -110,12 +115,13 @@ async def get_pay_links(wallet_ids: Union[str, List[str]]) -> List[PayLink]:
     )
     return [PayLink.from_row(row) for row in rows]
 
-# TODO: check lnaddress format
+# TODO: check to make sure lnaddress is unique and not duplicated before updating
 async def update_pay_link(link_id: int, **kwargs) -> Optional[PayLink]:
     for field in kwargs.items():
        if field[0] == 'lnaddress':
             value = field[1]
             logger.info(value)
+            await check_lnaddress_format(value)
             await check_lnaddress_update(value, link_id)
 
     q = ", ".join([f"{field[0]} = ?" for field in kwargs.items()])

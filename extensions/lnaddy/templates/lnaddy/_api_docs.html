@@ -69,11 +69,17 @@
         </h5>
         <code>{"lnurl": &lt;string&gt;}</code>
         <h5 class="text-caption q-mt-sm q-mb-none">Curl example</h5>
+        <p>NOTE: In this API, the "lnaddress" variable is only the "username" part of the address.
+          Do not add @domain to the Create a pay link request! The "username" is limited to 
+          <strong> a-z0-9-_.</strong>
+          The @domainname portion is the domain where this LNBits instance is hosted at. 
+
+        </p>
         <code
           >curl -X POST {{ request.base_url }}lnaddy/api/v1/links -d
           '{"description": &lt;string&gt;, "amount": &lt;integer&gt;, "max":
           &lt;integer&gt;, "min": &lt;integer&gt;, "comment_chars":
-          &lt;integer&gt;}' -H "Content-type: application/json" -H "X-Api-Key:
+          &lt;integer&gt;, "lnaddress": &lt;string&gt;}' -H "Content-type: application/json" -H "X-Api-Key:
           {{ user.wallets[0].adminkey }}"
         </code>
       </q-card-section>
@@ -102,7 +108,7 @@
         <h5 class="text-caption q-mt-sm q-mb-none">Curl example</h5>
         <code
           >curl -X PUT {{ request.base_url }}lnaddy/api/v1/links/&lt;pay_id&gt;
-          -d '{"description": &lt;string&gt;, "amount": &lt;integer&gt;}' -H
+          -d '{"description": &lt;string&gt;, "amount": &lt;integer&gt;, "lnaddress": &lt;string&gt;}' -H
           "Content-type: application/json" -H "X-Api-Key: {{
           user.wallets[0].adminkey }}"
         </code>
