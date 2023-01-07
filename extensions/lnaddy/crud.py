@@ -7,10 +7,9 @@ from .models import CreatePayLinkData, PayLink
 from loguru import logger
 import re
 
-# TODO: N lnaddress per wallet id
 
 async def check_lnaddress_update(lnaddress: str, id: str) -> bool: 
-    # check no duplicates for lnaddress
+    # check no duplicates for lnaddress when updating an lnaddress name
     row = await db.fetchall("SELECT lnaddress FROM lnaddy.pay_links WHERE lnaddress = ? AND id = ?", (lnaddress,id))
     logger.info("number of rows from lnaddress search")
     logger.info(len(row))
@@ -20,7 +19,9 @@ async def check_lnaddress_update(lnaddress: str, id: str) -> bool:
     else: 
         return True
 
+
 async def check_lnaddress_exists(lnaddress: str) -> bool:
+    # check if lnaddress name exists in the database when creating a new entry
     row = await db.fetchall("SELECT lnaddress FROM lnaddy.pay_links WHERE lnaddress = ?", (lnaddress))
     logger.info("number of rows from lnaddress search")
     if row: 
@@ -35,7 +36,6 @@ async def check_lnaddress_format(lnaddress: str) -> bool:
         return
     return True
 
-# TODO: ensure LN address format is correct
 async def create_pay_link(data: CreatePayLinkData, wallet_id: str) -> PayLink:
     await check_lnaddress_format(data.lnaddress)
     await check_lnaddress_exists(data.lnaddress)
@@ -115,7 +115,6 @@ async def get_pay_links(wallet_ids: Union[str, List[str]]) -> List[PayLink]:
     )
     return [PayLink.from_row(row) for row in rows]
 
-# TODO: check to make sure lnaddress is unique and not duplicated before updating
 async def update_pay_link(link_id: int, **kwargs) -> Optional[PayLink]:
     for field in kwargs.items():
        if field[0] == 'lnaddress':

@@ -53,7 +53,7 @@ class PayLink(BaseModel):
         return cls(**data)
 
     def lnurl(self, req: Request) -> str:
-        url = req.url_for("lnurlp.api_lnurl_response", link_id=self.id)
+        url = req.url_for("lnaddy.api_lnurl_response", link_id=self.id)
         return lnurl_encode(url)
 
     @property
@@ -76,9 +76,11 @@ class PayLink(BaseModel):
         else:
             return None
 
+    # this method is use for .well-known/lnurlp, must be kept for LN Addresses 
+    # However - we have duplicate name above and above conflicts
     async def lnurlpay_metadata(self, domain) -> LnurlPayMetadata:
-        text = f"Payment to {self.lnaddress}"
-        identifier = f"{self.lnaddress}@{domain}"
-        metadata = [["text/plain", text], ["text/identifier", identifier]]
+            text = f"Payment to {self.lnaddress}"
+            identifier = f"{self.lnaddress}@{domain}"
+            metadata = [["text/plain", text], ["text/identifier", identifier]]
 
-        return LnurlPayMetadata(json.dumps(metadata))
+            return LnurlPayMetadata(json.dumps(metadata))
