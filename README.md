@@ -1,5 +1,9 @@
 # LNBits Free Lightning Address Extension (Lightning Address - Simple)
 
+This repo was made into a PR into the LNBits Mainline.
+See PR https://github.com/lnbits/lnbits/pull/1319
+
+
 The Name of this extension is Lightning Address Simple, and is Powered by LNURL.
 
 The purpose of this extension is to make Free Lightning Addresses available for small groups without requiring the use of cloudflare or paying for the addresses. This extension is an option for anyone who wants to host lightning addresses for a non-production small LNBits install. Some examples may include: friends and family, game, teaching demo, or an experimental app. 
