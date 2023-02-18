@@ -1,5 +1,8 @@
 # LNBits Free Lightning Address Extension (Lightning Address - Simple)
 
+# NOTE THIS REPO IS CURRENTLY OUT OF DATE. 
+## USE THE REPO AT https://github.com/lnbits/FREE-lnaddress-extension/, FOLLOW SAME INSTRUCTIONS AS BELOW
+
 This repo was made into a PR into the LNBits Mainline.
 See PR https://github.com/lnbits/lnbits/pull/1319
 
